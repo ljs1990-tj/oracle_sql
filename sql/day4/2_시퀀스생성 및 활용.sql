@@ -1,0 +1,24 @@
+INSERT INTO BOARD VALUES(1, '두번째게시글', '내용111', 'test');
+ROLLBACK;
+
+CREATE SEQUENCE BOARD_SEQ
+    INCREMENT BY 1 -- 증가 수
+    START WITH 1; -- 시작숫자
+    
+-- 옵션
+--    MINVALUE 1 -- 시퀀스의 최소 값
+--    MAXVALUE 99999 -- 최대 값
+--    NOCYCLE -- 반복여부
+-- 삭제    
+-- DROP SEQUENCE BOARD_SEQ;
+
+SELECT TEST_SEQ.NEXTVAL
+FROM DUAL;
+
+INSERT INTO BOARD 
+VALUES(BOARD_SEQ.NEXTVAL, 'ZZZZZ', 'HHHHH', 'test');
+
+SELECT * FROM BOARD;
+COMMIT;
+
+
